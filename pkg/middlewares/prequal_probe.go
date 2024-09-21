@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"fmt"
 	"net/http"
 	"sync"
 	"time"
@@ -47,7 +46,6 @@ func Process(next echo.HandlerFunc) echo.HandlerFunc {
 }
 
 func HandleGetPing(c echo.Context) error {
-	fmt.Print("Was here once")
 	GlobalProbe.mutex.RLock()
 	defer GlobalProbe.mutex.RUnlock()
 	return c.JSON(http.StatusOK, &GlobalProbe)

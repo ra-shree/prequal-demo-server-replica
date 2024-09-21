@@ -16,8 +16,8 @@ func main() {
 
 	e.GET("/ping", middleware.HandleGetPing)
 
-	e.GET("/", func(c echo.Context) error {
-		randomDelay := time.Duration(rand.Intn(901)+100) * time.Millisecond
+	e.GET("/test", func(c echo.Context) error {
+		randomDelay := time.Duration(rand.Intn(500)+100) * time.Millisecond
 		time.Sleep(randomDelay)
 		return c.String(http.StatusOK, "Hello, World!")
 	})
